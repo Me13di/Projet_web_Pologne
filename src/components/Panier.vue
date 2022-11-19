@@ -19,11 +19,7 @@
         type: Object,
         required: true
       }
-    },
-    created(){
-      console.log(this.props.event)
-    },
-    
+    },   
    }
    </script>
    <style scoped>

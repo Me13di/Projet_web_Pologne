@@ -1,7 +1,7 @@
 
 <template>
   <div class="parent">
-    <Panier v-for= " event in events" :key="event.id" :event="event" />
+    <Panier v-for="event of events" :key="event.id" :event="event" />
   </div>
   </template>
 
@@ -12,25 +12,20 @@
   import {ref} from 'vue'
 
   export default {
-
-    name: 'Panier',
     components: {
       Panier // register it as a child component
     },
     setup() {
-    const events = useTodos()
-    console.log(events);
-    return {events}
-}
-   }
-      
-  
+      let events = ref([])
+      const todos = useTodos()
+      return {todos, events}
+    }, 
 
-// computed: {
-//   ...mapGetters()('getall')
-//   }
-  
-
+    created() {
+      console.log("Helo");
+      this.events = this.todos.todos; 
+    }
+  }
   </script>
    <style scoped>
    .home {
